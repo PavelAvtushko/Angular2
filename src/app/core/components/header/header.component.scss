@@ -26,6 +26,13 @@
 	margin-top: 2rem;
 }
 
+.border {
+	box-sizing: border-box;
+	border: 1px grey solid;
+	border-radius: 0.5rem;
+	padding: 15px;
+}
+
 // .logo-sub-title {
 // 	font-size: 0.7rem;
 // }
