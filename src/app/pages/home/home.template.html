@@ -1,7 +1,9 @@
 <div class="home-page">
-	<h4>To do items:</h4>
-	<div class="todo-list">
-		<todo-item *ngFor="let todo of todoList" [todo]="todo"></todo-item>
+	<div class="row line"></div>
+	<div class="row">
+		<div class="todo-list">
+			<todo-item *ngFor="let todo of todoList" [todo]="todo"></todo-item>
+		</div>
 	</div>
 	<div *ngIf="isLoading">Is loading...</div>
 </div>

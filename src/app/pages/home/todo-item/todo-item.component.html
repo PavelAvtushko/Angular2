@@ -1,7 +1,26 @@
-<div class="todo-item row"[ngClass]="calculateStatusClass(todo.status)">
+<!--<div class="todo-item row"[ngClass]="calculateStatusClass(todo.status)">
 	<div class="col-sm-3">{{todo.title}}</div>
 	<div class="col-sm-4">{{todo.subTitle}}</div>
 	<div class="col-sm-2">{{todo.startDate | date : 'MM/dd/yyyy'}}</div>
 	<div class="col-sm-2">{{todo.endDate | date : 'MM/dd/yyyy'}}</div>
 	<div class="col-sm-1">{{todo.status}}</div>
+</div>
+-->
+
+
+<div class="list-group col-md-3 todo-item">
+	<header class="list-group-item">
+		<h4>{{todo.title}}</h4>
+	</header>
+	<main class="list-group-item">
+		<div>
+			<h5>{{todo.subTitle}}</h5>
+			<div>{{todo.startDate | date : 'MM.dd.yyyy'}}</div>
+			<div>{{todo.endDate | date : 'MM/dd/yyyy'}}</div>
+		</div>
+  	</main>
+ 	<footer class="list-group-item ">
+		<button type="button" class="btn btn-link">Edit</button>
+	  	<button type="button" class="btn btn-link">Delete</button>
+  	</footer>
 </div>
