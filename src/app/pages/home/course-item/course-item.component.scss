@@ -1,0 +1,16 @@
+@import "../../../styles/variables/colors.scss";
+
+.course-item {
+
+    .overflow {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    }
+
+    main, footer {
+        > div{
+            width: 100%;
+        }
+    }
+}

@@ -1,0 +1,37 @@
+<div class="container border">
+	<form class="form-horizontal">
+		<div></div>
+		<div class="form-group row">
+			<label for="inputName" class="col-sm-2 control-label">Name</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" #inputName placeholder="Name" (keyup)="0">
+				<div>{{inputName.value}}</div>
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputEmail3" class="col-sm-2 control-label">Description</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="inputDescription" placeholder="Description">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputDate" class="col-sm-2 control-label">Creation date</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="inputDate" placeholder="Date">
+			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputTime" class="col-sm-2 control-label">Duration</label>
+			<div class="col-sm-6">
+				<input type="text" class="form-control" id="inputTime" placeholder="Duration">
+			</div>
+		</div>
+		<div class="form-group row">
+			<div class="col-sm-8 clearfix text-right">
+				<input type="button" class="pull-right btn btn-success" value="Submit" (click)=addCourse()>
+				<input type="button" class="pull-right btn btn-warning" value="Cancel" (click)=clearForm()>
+			</div>
+		</div>
+	</form>
+</div>
+

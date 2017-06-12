@@ -9,11 +9,17 @@ import { routes } from './home.routes';
 // custom components
 import { HomeComponent } from './home.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
+import { CourseItemComponent } from './course-item/course-item.component';
+import { EditFormComponent } from './edit-form/edit-form.component';
+import { SearchFormComponent } from './search-form/search-form.component';
 
 @NgModule({
 	declarations: [
 		HomeComponent,
-		TodoItemComponent
+		TodoItemComponent,
+		CourseItemComponent,
+		EditFormComponent,
+		SearchFormComponent
 	],
 	imports: [
 		routes,

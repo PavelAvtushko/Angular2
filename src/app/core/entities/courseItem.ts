@@ -1,14 +1,4 @@
-class CourseData {
-	public name: string;
-	public description: string;
-	public duration: string;
-
-	constructor(name: string, description: string, duration: string) {
-		this.name = name;
-		this.description = description;
-		this.duration = duration;
-	}
-}
+import { CourseData } from './courseData';
 
 export class CourseItem {
 	private _name: string;
@@ -59,32 +49,32 @@ export class CourseItem {
 	}
 }
 
-class CourseItemManager {
-	private _itemsList;
+// class CourseItemManager {
+// 	private _itemsList;
 
-	constructor() {
-		this._itemsList = {};
-	}
+// 	constructor() {
+// 		this._itemsList = {};
+// 	}
 
-	public setCourse(course: CourseItem): void {
-		this._itemsList[course.id] = course;
-	}
+// 	public setCourse(course: CourseItem): void {
+// 		this._itemsList[course.id] = course;
+// 	}
 
-	public deleteCourse(course: CourseItem): void {
-		delete this._itemsList[course.id];
-	}
+// 	public deleteCourse(course: CourseItem): void {
+// 		delete this._itemsList[course.id];
+// 	}
 
-	public modifySelectedCourse(course: CourseItem, data: CourseData): void {
-		this._itemsList[course.id].modifyCourse(data);
-	}
+// 	public modifySelectedCourse(course: CourseItem, data: CourseData): void {
+// 		this._itemsList[course.id].modifyCourse(data);
+// 	}
 
-	// for deleting
-	public print(): void {
-		const a = Object.keys(this._itemsList);
-		a.map((i) => { console.log(this._itemsList[i].name); });
-		console.log('_____________');
-	}
-}
+// 	// for deleting
+// 	public print(): void {
+// 		const a = Object.keys(this._itemsList);
+// 		a.map((i) => { console.log(this._itemsList[i].name); });
+// 		console.log('_____________');
+// 	}
+// }
 
 // const inst1: CourseData = {
 // 	name: 'pasha1',

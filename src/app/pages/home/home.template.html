@@ -1,9 +1,15 @@
 <div class="home-page">
+	<search-form class="row" [showForm] = "showForm"></search-form>
+	<edit-form class="row" *ngIf="isShowingForm" [hideForm] = "hideForm" [addNewCourse]="addNewCourse"></edit-form>
 	<div class="row line"></div>
 	<div class="row">
-		<div class="todo-list">
-			<todo-item *ngFor="let todo of todoList" [todo]="todo"></todo-item>
-		</div>
+		<course-item 
+			*ngFor="let course of courseList"
+			class="col-md-3 
+			course-item" [course]="course"
+			(deleteCourse)="deleteCourse($event)"
+			[showForm] = "showForm">
+		</course-item>
 	</div>
-	<div *ngIf="isLoading">Is loading...</div>
+	<!--<div *ngIf="isLoading">Is loading...</div>-->
 </div>

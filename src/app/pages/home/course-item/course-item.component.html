@@ -1,0 +1,18 @@
+<div class="list-group">
+	<header class="list-group-item">
+		<h4 class="overflow">{{course.name}}</h4>
+	</header>
+	<main class="list-group-item">
+		<div>
+			<h5 class="overflow">{{course.description}}</h5>
+			<div>{{course.date  | date : 'MM.dd.yyyy'}}</div>
+			<div>{{course.duration}}</div>
+		</div>
+  	</main>
+ 	<footer class="list-group-item">
+		 <div class="text-right">
+			<button type="button" class="btn-link" (click)=onEditCourse()>Edit</button>
+			<button type="button" class="btn-link" (click)=onDeleteCourse($event)>Delete</button>
+		  </div>
+  	</footer>
+</div>

@@ -8,6 +8,8 @@ import { Component, ViewEncapsulation } from '@angular/core';
 	encapsulation: ViewEncapsulation.None
 })
 export class HeaderComponent {
+	private showEditCourseForm: boolean = false;
+
 	constructor() {
 
 	}
