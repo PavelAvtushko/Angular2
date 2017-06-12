@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Input, OnInit } from '@angular/core';
 // import { TodoItem } from '../../../core/entities';
 // import { todoStatusClasses } from '../../../core/enums';
 
@@ -9,21 +9,27 @@ import { Component, ViewEncapsulation, Input } from '@angular/core';
 	providers: [],
 	encapsulation: ViewEncapsulation.None
 })
-export class EditFormComponent {
+export class EditFormComponent implements OnInit {
 	@Input() public hideForm;
 	@Input() public addNewCourse;
+	public newCourse: any;
+
 	constructor() {
 	}
 
+	public ngOnInit() {
+		this.newCourse = {};
+		this.newCourse.name = '';
+		this.newCourse.description = '';
+		this.newCourse.duration = '';
+		this.newCourse.date = new Date();
+	}
+
 	public clearForm() {
-		console.log('clearForm');
 		this.hideForm();
 	}
 
 	public addCourse() {
-		const name = 'Title' || 'No name';
-		const description = 'description' || 'No description';
-		const duration = 'duration' || 'No information';
-		this.addNewCourse({ name, description, duration });
+		this.addNewCourse(this.newCourse);
 	}
 }

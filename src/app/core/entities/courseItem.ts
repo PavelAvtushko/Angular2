@@ -8,11 +8,11 @@ export class CourseItem {
 	private _id: string;
 
 	constructor(data: CourseData) {
-		this._name = data.name;
-		this._description = data.description;
+		this._name = data.name || 'no name';
+		this._description = data.description || 'no description';
 		this._date = new Date();
 		this._id = this.generateID();
-		this._duration = data.duration;
+		this._duration = data.duration || 'no info';
 	}
 
 	get name(): string {
