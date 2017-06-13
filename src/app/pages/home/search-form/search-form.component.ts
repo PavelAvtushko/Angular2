@@ -1,4 +1,4 @@
-import { Component, ViewEncapsulation, Input } from '@angular/core';
+import { Component, ViewEncapsulation, Output, EventEmitter } from '@angular/core';
 
 @Component({
 	selector: 'search-form',
@@ -8,8 +8,22 @@ import { Component, ViewEncapsulation, Input } from '@angular/core';
 	encapsulation: ViewEncapsulation.None
 })
 export class SearchFormComponent {
-	@Input() public showForm;
+	@Output() public showForm: EventEmitter<boolean> = new EventEmitter<boolean>();
+	@Output() public findCourses: EventEmitter<string> = new EventEmitter<string>();
+
+	public keyWord: string;
 
 	constructor() {
+	}
+
+	public sendRequest(keyWord: string): void {
+		if (keyWord) {
+			this.findCourses.emit(keyWord);
+		}
+		// this.keyWord = '';
+	}
+
+	public onShowForm(): void {
+		this.showForm.emit(true);
 	}
 }

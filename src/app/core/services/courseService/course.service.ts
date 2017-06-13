@@ -12,33 +12,48 @@ export class CourseService {
 	constructor() {
 	}
 
-	public getCourseItems(): CourseItem[]  {
+	public getCourseItems(): CourseItem[] {
 		return [
 			new CourseItem({
-				name: 'Title 1',
-				description: 'dess aasddd ddddddd ddddd ddddddd dddddcr1',
-				duration: 'durat1'
+				name: 'Video course 1',
+				description: 'Heaaalth and social security',
+				duration: '1h 23 min'
 			}),
 			new CourseItem({
-				name: 'Title 2',
-				description: 'description 2',
-				duration: 'durat2'
+				name: 'Video course 2',
+				description: 'Tax collection and management',
+				duration: '2h 23 min'
 			}),
 			new CourseItem({
-				name: 'Title 3',
-				description: 'description 3',
-				duration: 'durat3'
+				name: 'Video course 3',
+				description: 'Heaaalth and social security',
+				duration: '1h 23 min'
 			}),
 			new CourseItem({
-				name: 'Title 4',
-				description: 'description 4',
-				duration: 'durat4'
+				name: 'Video course 4',
+				description: 'Tax collection and management',
+				duration: '1h 23 min'
 			}),
 			new CourseItem({
-				name: 'Title 5',
-				description: 'description 5',
-				duration: 'durat5'
+				name: 'Video course 5',
+				description: 'Health and social security',
+				duration: '1h 28 min'
 			})
 		];
+	}
+
+	public deleteCourse(courses: CourseItem[], course: CourseItem): void {
+		const index = courses.indexOf(course);
+		courses.splice(index, 1);
+	}
+
+	public addNewCourse(courses: CourseItem[], data): void {
+		const newCourse = new CourseItem(data);
+		courses.push(newCourse);
+	}
+
+	public updateCourse(courses: CourseItem[], data: CourseItem): void {
+		const currentCourse = courses.find((item) => item.id === data.id);
+		currentCourse.modifyCourse(data);
 	}
 }

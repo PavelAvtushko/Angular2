@@ -1,10 +1,11 @@
 import { Component, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
-import { Subscription } from 'rxjs';
+// import { Subscription } from 'rxjs';
+// import { Pipe, PipeTransform } from '@angular/core';
 
 import { CourseService } from '../../core/services';
-import { TodoService } from '../../core/services';
-import { TodoItem } from '../../core/entities';
 import { CourseItem } from '../../core/entities';
+// import { TodoService } from '../../core/services';
+// import { TodoItem } from '../../core/entities';
 
 @Component({
 	selector: 'home',
@@ -17,18 +18,17 @@ import { CourseItem } from '../../core/entities';
 export class HomeComponent implements OnInit {
 	// private todoServiceSubscription: Subscription;
 	// private todoList: TodoItem[];
-	private courseList: CourseItem[];
 	// private isLoading: boolean = false;
+
+	public courseData: CourseItem;
+	private courseList: CourseItem[];
 	private isShowingForm: boolean = false;
+	private searchValue: string;
 
 	constructor(private courseService: CourseService) {
-		// console.log('Home page constructor');
-		// this.courseList = [];
-		// this.todoList = [];
 	}
 
 	public ngOnInit() {
-		// console.log('Home page init');
 		// this.isLoading = false;
 		// this.todoServiceSubscription = this.todoService.getTodoItems().subscribe((res: TodoItem[]) => {
 		// 	this.todoList = res;
@@ -36,47 +36,52 @@ export class HomeComponent implements OnInit {
 		// });
 
 		this.courseList = this.courseService.getCourseItems();
-		// console.log(this.courseList);
 	}
 
 	// public ngOnDestroy() {
 	// 	this.todoServiceSubscription.unsubscribe();
 	// }
 
-	public showForm = (course?: CourseItem): void => {
-		this.isShowingForm = true;
-	}
-
-	public hideForm = (): void => {
-		this.isShowingForm = false;
-	}
-
 	public deleteCourse = (course: CourseItem): void => {
-		const index = this.courseList.indexOf(course);
-		this.courseList.splice(index, 1);
-		this.hideForm();
+		this.courseService.deleteCourse(this.courseList, course);
+		this.showForm(false);
+	}
+
+	public editCourse = (course: CourseItem): void => {
+		this.courseData = course;
+		this.showForm(true);
 	}
 
 	public addNewCourse = (data): void => {
-		const newCourse = new CourseItem(data);
-		this.courseList.push(newCourse);
-		this.hideForm();
+		if (data.id) {
+			this.courseService.updateCourse(this.courseList, data);
+		} else {
+			this.courseService.addNewCourse(this.courseList, data);
+		}
+		this.showForm(false);
 	}
 
-	public onChanged() {
-		console.log('del');
+	public filterCourses = (course: CourseItem) => {
+		if (!this.searchValue) {
+			return true;
+		} else {
+			if (course.name.toLowerCase().search(this.searchValue) !== -1) {
+				return true;
+			}
+			return false;
+		}
+	}
+
+	public findCourses(request: string) {
+		this.searchValue = request;
+	}
+
+	private showForm = (flag: boolean): void => {
+		if (!flag) {
+			this.courseData = null;
+		}
+		this.isShowingForm = flag;
 	}
 }
 
-// const obj1 = new CourseItem(inst1);
-// const obj2 = new CourseItem(inst2);
-// const obj3 = new CourseItem(inst3);
-// const list = new CourseItemManager();
-// list.setCourse(obj1);
-// list.setCourse(obj2);
-// list.setCourse(obj3);
-// list.print();
-// list.modifySelectedCourse(obj1, inst3);
-// list.print();
-// list.deleteCourse(obj1);
-// list.print();
+// deleteCourse addNewCourse updateCourse

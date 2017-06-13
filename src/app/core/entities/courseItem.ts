@@ -1,49 +1,28 @@
 import { CourseData } from './courseData';
 
 export class CourseItem {
-	private _name: string;
-	private _description: string;
-	private _date: Date;
-	private _duration: string;
-	private _id: string;
+	public name: string;
+	public description: string;
+	public date: Date;
+	public duration: string;
+	public id: string;
 
 	constructor(data: CourseData) {
-		this._name = data.name || 'no name';
-		this._description = data.description || 'no description';
-		this._date = new Date();
-		this._id = this.generateID();
-		this._duration = data.duration || 'no info';
-	}
-
-	get name(): string {
-		return this._name;
-	}
-
-	get description(): string {
-		return this._description;
-	}
-
-	get date(): Date {
-		return this._date;
-	}
-
-	get id(): string {
-		return this._id;
-	}
-
-	get duration(): string {
-		return this._duration;
+		this.name = data.name || 'no name';
+		this.description = data.description || 'no description';
+		this.date = new Date();
+		this.id = this.generateID();
+		this.duration = data.duration || 'no info';
 	}
 
 	public modifyCourse(data: CourseData): void {
-		this._name = data.name;
-		this._description = data.description;
-		this._duration = data.duration;
-		this._date = new Date();
+		this.name = data.name || 'no name';
+		this.description = data.description || 'no description';
+		this.duration = data.duration || 'no info';
 	}
 
 	private generateID(): string {
-		const randomNumber = Math.ceil(Math.random() * 10);
+		const randomNumber = Math.ceil(Math.random() * 10000);
 		const id = Date.now() + randomNumber;
 		return id.toString();
 	}

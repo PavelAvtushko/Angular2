@@ -1,14 +1,25 @@
 <div class="home-page">
-	<search-form class="row" [showForm] = "showForm"></search-form>
-	<edit-form class="row" *ngIf="isShowingForm" [hideForm] = "hideForm" [addNewCourse]="addNewCourse"></edit-form>
+	<search-form
+		class="row"
+		(showForm) = "showForm($event)"
+		(findCourses)="findCourses($event)">
+	</search-form>
+	<edit-form 
+		class="row"
+		*ngIf="isShowingForm"
+		[courseData] = "courseData"
+		(addNewCourse)="addNewCourse($event)"
+		(showForm) = "showForm($event)">
+	</edit-form>
 	<div class="row line"></div>
 	<div class="row">
+		<!--<course-item *ngFor="let course of (courseList | mySearchCourses : searchValue)"-->
 		<course-item 
 			*ngFor="let course of courseList"
-			class="col-md-3 
-			course-item" [course]="course"
+			[course]="course"
+			[filterCourses] = "filterCourses"
 			(deleteCourse)="deleteCourse($event)"
-			[showForm] = "showForm">
+			(editCourse)="editCourse($event)">
 		</course-item>
 	</div>
 	<!--<div *ngIf="isLoading">Is loading...</div>-->

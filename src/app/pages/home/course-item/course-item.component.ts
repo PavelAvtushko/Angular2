@@ -11,23 +11,26 @@ import { CourseItem } from '../../../core/entities';
 
 export class CourseItemComponent {
 	@Input() public course: CourseItem;
+	@Input() public filterCourses;
 	// @Input() public deleteCourse;
-	@Input() public showForm;
+	// @Input() public showForm;
 	@Output() public deleteCourse: EventEmitter<CourseItem> = new EventEmitter<CourseItem>();
+	@Output() public editCourse: EventEmitter<CourseItem> = new EventEmitter<CourseItem>();
 
 	constructor() {
 	}
 
 	public onEditCourse(course: CourseItem): void {
-		this.showForm(course);
+		this.editCourse.emit(course);
+		// this.showForm(course);
 		// console.log('edit', course.id);
 	}
 
-	public onDeleteCourse(course: CourseItem) {
+	public onDeleteCourse(course: CourseItem): void {
 		this.deleteCourse.emit(course);
 	}
 
-	// public deleteCourse(course: CourseItem): void {
-	// 	this.method(course);
-	// }
+	public display(course: CourseItem): boolean {
+		return this.filterCourses(course);
+	}
 }

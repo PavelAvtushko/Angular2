@@ -13,13 +13,17 @@ import { CourseItemComponent } from './course-item/course-item.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 
+// pipes
+import { SearchCourses } from '../../core/pipes/searchCourses.pipe';
+
 @NgModule({
 	declarations: [
 		HomeComponent,
 		TodoItemComponent,
 		CourseItemComponent,
 		EditFormComponent,
-		SearchFormComponent
+		SearchFormComponent,
+		SearchCourses
 	],
 	imports: [
 		routes,
