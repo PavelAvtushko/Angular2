@@ -65,7 +65,8 @@ export class HomeComponent implements OnInit {
 		if (!this.searchValue) {
 			return true;
 		} else {
-			if (course.name.toLowerCase().search(this.searchValue) !== -1) {
+			const subStr = this.searchValue.toLowerCase();
+			if (course.name.toLowerCase().indexOf(subStr) !== -1) {
 				return true;
 			}
 			return false;
