@@ -11,16 +11,16 @@ export class SearchFormComponent {
 	@Output() public showForm: EventEmitter<boolean> = new EventEmitter<boolean>();
 	@Output() public findCourses: EventEmitter<string> = new EventEmitter<string>();
 
-	public keyWord: string;
+	public keyPhrase: string;
 
 	constructor() {
 	}
 
-	public sendRequest(keyWord: string): void {
-		if (keyWord) {
-			this.findCourses.emit(keyWord);
+	public sendRequest(keyPhrase: string): void {
+		if (keyPhrase) {
+			this.findCourses.emit(keyPhrase);
 		}
-		// this.keyWord = '';
+
 	}
 
 	public onShowForm(): void {

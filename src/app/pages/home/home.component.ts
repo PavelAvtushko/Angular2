@@ -65,7 +65,7 @@ export class HomeComponent implements OnInit {
 		if (!this.searchValue) {
 			return true;
 		} else {
-			if (course.name.toLowerCase().search(this.searchValue) !== -1) {
+			if (course.name.toLowerCase().indexOf(this.searchValue) !== -1) {
 				return true;
 			}
 			return false;
