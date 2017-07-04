@@ -4,6 +4,7 @@ import { Component, ViewEncapsulation, OnInit, OnDestroy } from '@angular/core';
 
 import { CourseService } from '../../core/services';
 import { CourseItem } from '../../core/entities';
+
 // import { TodoService } from '../../core/services';
 // import { TodoItem } from '../../core/entities';
 
