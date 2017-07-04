@@ -6,8 +6,8 @@
 				class="form-control col-md-4"
 				id="exampleInputEmail2"
 				placeholder="Course name or Date"
-				[(ngModel)]="keyWord" name = "search">
-			<input type="button" class="btn btn-primary btn-offset" value="Find" (click)=sendRequest(keyWord)>
+				[(ngModel)]="keyPhrase" name = "search">
+			<input type="button" class="btn btn-primary btn-offset" value="Find" (click)=sendRequest(keyPhrase)>
 			<input type="button" class="btn btn-primary btn-offset" value="Add Course" (click)=onShowForm()>
 		</div>
 	</form>
