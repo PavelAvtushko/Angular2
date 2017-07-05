@@ -19,6 +19,10 @@ export class PieChartComponent {
 	// @Output() public editCourse: EventEmitter<CourseItem> = new EventEmitter<CourseItem>();
 
 	constructor() {
+
+	}
+
+	public ngOnInit(){
 		var width = 960,
 				height = 500,
 				radius = Math.min(width, height) / 2;
@@ -37,18 +41,17 @@ export class PieChartComponent {
 				.outerRadius(radius - 40)
 				.innerRadius(radius - 40);
 
+			console.log(d3.select(".pie-chart"));
+
 			var svg = d3.select(".pie-chart").append("svg")
 				.attr("width", width)
 				.attr("height", height)
 				.append("g")
 				.attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
 
-			d3.csv("data.csv", function(d) {
-				d.population = +d.population;
-				return d;
-				}, function(error, data) {
+			d3.json("chartData", function(error, data) {
 				if (error) throw error;
-
+				console.log(data);
 				var arc = svg.selectAll(".arc")
 					.data(pie(data))
 					.enter().append("g")
@@ -65,7 +68,6 @@ export class PieChartComponent {
 					.attr("fill","navyblue");
 				});
 	}
-
 	// public onEditCourse(course: CourseItem): void {
 	// 	this.editCourse.emit(course);
 	// 	// this.showForm(course);
@@ -80,5 +82,4 @@ export class PieChartComponent {
 	// 	return this.filterCourses(course);
 	// }
 }
-
 	

@@ -10,6 +10,7 @@ import { routes } from './home.routes';
 import { HomeComponent } from './home.component';
 import { TodoItemComponent } from './todo-item/todo-item.component';
 import { CourseItemComponent } from './course-item/course-item.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { EditFormComponent } from './edit-form/edit-form.component';
 import { SearchFormComponent } from './search-form/search-form.component';
 
@@ -21,6 +22,7 @@ import { SearchCourses } from '../../core/pipes/searchCourses.pipe';
 		HomeComponent,
 		TodoItemComponent,
 		CourseItemComponent,
+		PieChartComponent,
 		EditFormComponent,
 		SearchFormComponent,
 		SearchCourses
