@@ -1,5 +1,5 @@
 <div class="home-page">
-	<!--<search-form
+	<search-form
 		class="row"
 		(showForm) = "showForm($event)"
 		(findCourses)="findCourses($event)">
@@ -14,14 +14,12 @@
 	<div class="row line"></div>
 	<div class="row">
 		<course-item *ngFor="let course of (courseList | mySearchCourses : searchValue)"
-		<course-item 
-			*ngFor="let course of courseList"
 			[course]="course"
 			[filterCourses] = "filterCourses"
 			(deleteCourse)="deleteCourse($event)"
 			(editCourse)="editCourse($event)">
-		</course-item>-->
-		<pie-chart></pie-chart>
-		
+		</course-item>
+	</div>	
+	<!--<pie-chart></pie-chart>-->
 	<div *ngIf="isLoading">Is loading...</div>
 </div>
